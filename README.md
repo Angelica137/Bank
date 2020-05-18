@@ -27,3 +27,24 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+
+## User stories
+
+### User story 1
+
+* As a user, when I deposit money into my bank account, 
+* I want the date and amount to be recorded
+* So I can have a record of my transactions
+
+### User story 2
+
+* As a user, when I withdraw money from my bank account, 
+* I wan to the date and amount to be recorded
+* So that I can have a record of my transactions
+
+### User story 3
+
+* As a user, when I want to know my account balance
+* I want to be able see how my transaction contributed to the change in balance
+* so that I can know if the balance is as I expected it to be

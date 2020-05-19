@@ -34,17 +34,17 @@ date || credit || debit || balance
 ### User story 1
 
 * As a user, when I deposit money into my bank account, 
-* I want the date and amount to be recorded
-* So I can have a record of my transactions
+* I want the date,  amount, and my updated balance to be recorded
+* So I can have a record of my deposits and my new balance
 
 ### User story 2
 
 * As a user, when I withdraw money from my bank account, 
-* I wan to the date and amount to be recorded
-* So that I can have a record of my transactions
+* I wan to the date, amount, and my updated balance to be recorded
+* So that I can have a record of my withdrawals and the my new balnce
 
 ### User story 3
 
-* As a user, when I want to know my account balance
-* I want to be able see how my transaction contributed to the change in balance
-* so that I can know if the balance is as I expected it to be
+* As a user, when I want to know what transactions have I performed into my account
+* I want to be able see each transaction with its amount, date and how it affected my overall balance
+* so that I can know if the balance and transactions match what I was expecting

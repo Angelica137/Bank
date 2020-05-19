@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import { Transaction } from './transaction';
+import { Deposit } from './deposit';
 
-describe('Transaction', () => {
+describe('Deposit', () => {
 
   describe('#amount', () => {
-    it('is instantiated with a value of 0', () => {
-      let transaction = new Transaction;
-      expect(transaction.amount).to.equal(0.00);
+    it('stores the amount the user enters', () => {
+      let deposit = new Deposit(0);
+      expect(deposit.amount).to.equal(0.00);
     })
   })
 

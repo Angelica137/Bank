@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { Deposit } from './deposit';
+import moment from 'moment';
 
 describe('Deposit', () => {
 
@@ -10,14 +11,12 @@ describe('Deposit', () => {
     })
   })
 
+  describe('#date', () => {
+    it('stores the date when the deposit was made', () => {
+      let deposit = new Deposit(5.16, moment().format('L'));
+      expect(deposit.date).to.equal(moment().format('L'));
+    })
+  })
+})
 
 
-
-  
-//   describe('#deposit()', () => {
-//     it ('accpets an amount and records the event with the date when it happened', () => {
-//       let transaction = new Transaction;
-//       expect(transaction.deposit(5.16)).to.equal(5.16);
-//     });
-//   })
- })

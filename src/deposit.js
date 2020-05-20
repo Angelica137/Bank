@@ -6,3 +6,6 @@ export class Deposit {
     this.date = moment().format('L');
   }
 }
+
+
+//add method increaseBalance

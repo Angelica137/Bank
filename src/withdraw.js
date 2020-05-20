@@ -6,3 +6,6 @@ export class Withdraw {
     this.date = moment().format('L');
   }
 }
+
+
+// add method reduceBalance

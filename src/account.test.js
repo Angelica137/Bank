@@ -17,4 +17,35 @@ describe('Account', () => {
       expect(account.transactionHistory).to.deep.equal([]);
     })
   })
+
+  //add deposit method
+  //it instantiates a transaction with
+  //date
+  //credit
+  //debit - this must be left empty
+  //new balance
+  //updates balance
+  //pushes transaction to transaction history
+
+  describe('#deposit', () => {
+    it('creates a transaction with a positive credit and 0 debit', () => {
+      let account = new Account();
+      account.deposit(15);
+      expect(account.deposit).to.equal({
+        credit: 15,
+        debit: 0
+      })
+    })
+  })
+
+  //add withdraw method
+  //it instantiates a transaction with
+  //date
+  //credit - this must be left empty but the field exists in the form
+  // deposit
+  // new balance
+  //updates balance
+  //pushes transaction to transaction history
+
+
 })

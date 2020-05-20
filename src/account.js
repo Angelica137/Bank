@@ -8,10 +8,13 @@ export class Account {
   constructor(balance = 0, creditClass = Credit) {
     this.balance = balance;
     this.transactionHistory = [];
-    this.credit = creditClass;
+    this.creditClass = creditClass;
   }
 
-  deposit() {
+  deposit(amount) {
+    //add dependency from Credit calss
+    const credit = new this.creditClass(amount);
+    //push this transaction to transaction history
 
   }
 

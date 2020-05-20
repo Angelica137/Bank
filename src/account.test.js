@@ -27,16 +27,15 @@ describe('Account', () => {
   //updates balance
   //pushes transaction to transaction history
 
-  describe('#deposit', () => {
-    it('creates a transaction with a positive credit and 0 debit', () => {
-      let account = new Account();
-      account.deposit(15);
-      expect(account.deposit).to.equal({
-        credit: 15,
-        debit: 0
-      })
-    })
-  })
+//   describe('#deposit', () => {
+//     it('creates a transaction with a positive credit and 0 debit', () => {
+//       let account = new Account();
+//       account.deposit(15);
+// // use mock to test dependency injection
+//       const mockCredit = {}
+//       expect(account.deposit).to.equal(15);
+//     })
+//   })
 
   //add withdraw method
   //it instantiates a transaction with

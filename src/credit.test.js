@@ -19,7 +19,7 @@ describe('TransactionCredit', () => {
   })
 
   describe('#debit', () => {
-    it('stores a value of null when a credit is creates', () => {
+    it('stores a value of null when a credit is created', () => {
       let transaction = new TransactionCredit(5.26);
       expect(transaction.debit).to.equal(null);
     })

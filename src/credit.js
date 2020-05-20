@@ -2,8 +2,8 @@ import moment from 'moment';
 
 export class TransactionCredit {
   constructor(amount) {
-    this.credit = amount;
     this.date = moment().format('L');
+    this.credit = amount;
     this.debit = null; 
   }
 //add method increaseBalance - add this in account
@@ -12,5 +12,3 @@ export class TransactionCredit {
 //add method to display trasanciton as per table requirement
 
 }
-
-

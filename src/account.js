@@ -16,6 +16,7 @@ export class Account {
     const credit = new this.transactionCreditClass(amount);
     //update balance
     //push this transaction to transaction history
+    //with updated balance
 
   }
 

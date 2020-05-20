@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import { Account } from './account';
-import { TransactionCredit } from './credit';
 var sinon = require('sinon');
-import moment from 'moment';
 var assert = require('assert');
 
 describe('Account', () => {
@@ -21,17 +19,8 @@ describe('Account', () => {
     })
   })
 
-  //add deposit method
-  //it instantiates a transaction with
-  //date
-  //credit
-  //debit - this must be left empty
-  //updates balance
-  //pushes transaction to transaction history
-
   describe('#deposit', () => {
     it('calls TransactionCredit', () => {
-// use mock to test dependency injection
       let account = new Account();
       account.deposit(15);
       const creditMock = sinon.fake();
@@ -39,6 +28,8 @@ describe('Account', () => {
       proxy();
       assert(creditMock.called);
     })
+      //updates balance
+     //pushes transaction to transaction history
   })
 
   //add withdraw method

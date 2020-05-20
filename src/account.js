@@ -6,6 +6,6 @@ import moment from 'moment';
 export class Account {
   constructor(balance = 0) {
     this.balance = balance;
-    
+    this.transactionHistory = [];
   }
 }

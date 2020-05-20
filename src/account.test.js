@@ -6,15 +6,15 @@ describe('Account', () => {
 
   describe('#balance', () => {
     it('starts with value of 0', () => {
-      let pot = new Account();
-      expect(pot.balance).to.equal(0);
+      let account = new Account();
+      expect(account.balance).to.equal(0);
     })
   })
 
-  // describe('#balance', () => {
-  //   it('stores the date when balance was updated', () => {
-  //     let account = new Account();
-  //     expect(accountt.balance).to.equal(0, (moment().format('L')));
-  //   })
-  // })
+  describe('#transactionHistory', () => {
+    it('starts as an empty list', () => {
+      let account = new Account();
+      expect(account.transactionHistory).to.deep.equal([]);
+    })
+  })
 })

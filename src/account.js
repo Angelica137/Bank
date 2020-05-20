@@ -1,14 +1,14 @@
 import moment from 'moment';
-import { Deposit } from './deposit';
+import { Credit } from './credit';
 
 //An account holds a balance and a transacion history
 //an account can print statements
 
 export class Account {
-  constructor(balance = 0, depositClass = Deposit) {
+  constructor(balance = 0, creditClass = Credit) {
     this.balance = balance;
     this.transactionHistory = [];
-    this.deposit = depositClass;
+    this.credit = creditClass;
   }
 
   deposit() {

@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export class Deposit {
+export class Credit {
   constructor(amount) {
     this.amount = amount;
     this.date = moment().format('L');

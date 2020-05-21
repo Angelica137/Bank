@@ -21,7 +21,7 @@ describe('Account', () => {
   })
 
   describe('#deposit', () => {
-    it('calls TransactionCredit', () => {
+    xit('calls TransactionCredit', () => {
       let account = new Account();
       account.deposit(15);
       const creditMock = sinon.fake();
@@ -29,29 +29,20 @@ describe('Account', () => {
       proxy();
       assert(creditMock.called);
     })
-     it('updates account balance with the deposit amount', () => {
+    it('updates account balance with the deposit amount', () => {
       let account = new Account();
       account.deposit(15);
       expect(account.balance).to.equal(15.00);
-     })
-    it('adds transaction to transaction history', () => {
+    })
+    it('adds transaction to transaction history with updated balance', () => {
       let account = new Account();
       account.deposit(15);
       let date = Date.now()
       let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
-        credit: 15.00, debit: null}])
+        credit: 15.00, debit: null, balance: 15.00}])
     })
- })
-
-  //add withdraw method
-  //it instantiates a transaction with
-  //date
-  //credit - this must be left empty but the field exists in the form
-  // deposit
-  // new balance
-  //updates balance
-  //pushes transaction to transaction history
+  })
 
   describe('#withdraw', () => {
     it('calls TransactionDebit', () => {
@@ -62,12 +53,12 @@ describe('Account', () => {
       proxy();
       assert(debitMock.called);
     })
-     it('updates account balance with the withdrawn amount', () => {
+    it('updates account balance with the withdrawn amount', () => {
       let account = new Account();
       account.balance = 15
       account.withdraw(15);
       expect(account.balance).to.equal(0);
-     })
+    })
     it('adds transaction to transaction history', () => {
       let account = new Account();
       account.withdraw(15);
@@ -76,5 +67,29 @@ describe('Account', () => {
       expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
         credit: null, debit: 15.00}])
     })
-     })
-})
+  })
+
+  // add statement method
+
+  // describe('#statement', () => {
+  //   it('retunrs transaction history on a table format', () => {
+  //     let account = new Account();
+  //     account.deposit(30);
+  //     expect(account.transactionHistory).to.equal("14/12/2020 || 30.00 || || 30.00");
+  //   })
+  //    it('updates account balance with the withdrawn amount', () => {
+  //     let account = new Account();
+  //     account.balance = 15
+  //     account.withdraw(15);
+  //     expect(account.balance).to.equal(0);
+  //    })
+  //   it('adds transaction to transaction history', () => {
+  //     let account = new Account();
+  //     account.withdraw(15);
+  //     let date = Date.now()
+  //     let formatDate = moment(date).format("DD/MM/YYYY ");
+  //     expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
+  //       credit: null, debit: 15.00}])
+  //   })
+  })
+  

@@ -10,8 +10,8 @@ describe('TransactionCredit', () => {
     })
   })
 
-  xdescribe('#date', () => {
-    it('stores the date when the deposit was made', () => {
+  describe('#date', () => {
+    xit('stores the date when the deposit was made', () => {
       let transaction = new TransactionCredit(5.16);
       expect(transaction.date).to.deep.equal(Date.now());
     })
@@ -24,12 +24,12 @@ describe('TransactionCredit', () => {
     })
   })
 
-  // describe('#balance', () => {
-  //   it('stores a value of null when a credit is created', () => {
-  //     let transaction = new TransactionCredit(5.26);
-  //     expect(transaction.debit).to.equal(null);
-  //   })
-  // })
+  describe('#balance', () => {
+    it('stores a value of null when a credit is created', () => {
+      let transaction = new TransactionCredit(5.26);
+      expect(transaction.balance).to.equal(0);
+    })
+  })
 })
 
 

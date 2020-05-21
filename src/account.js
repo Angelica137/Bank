@@ -6,17 +6,16 @@ import { TransactionCredit } from './credit';
 
 export class Account {
   constructor(balance = 0, transactionCreditClass = TransactionCredit) {
-    this.balance = balance;
+    this.balance = 0;
     this.transactionHistory = [];
     this.transactionCreditClass = TransactionCredit;
   }
 
   deposit(amount) {
-    //add dependency from Credit calss
-    const credit = new this.transactionCreditClass(amount);
     this.balance += amount;
-    //update balance
+    const credit = new TransactionCredit(amount);
     //push this transaction to transaction history
+    this.transactionHistory.push(credit.getTransaction());
     //with updated balance
 
   }

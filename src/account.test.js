@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { Account } from './account';
+import moment from 'moment';
 var sinon = require('sinon');
 var assert = require('assert');
 
@@ -29,12 +30,20 @@ describe('Account', () => {
       assert(creditMock.called);
     })
      // updates balance
-     it('updates account balance with the deposit amount', () => {
+     it('updates account balance with the deposit ßamount', () => {
       let account = new Account();
       account.deposit(15);
       expect(account.balance).to.equal(15.00);
      })
     // pushes transaction to transaction history
+    it('adds transaction to transaction history', () => {
+      let account = new Account();
+      account.deposit(15);
+      let date = Date.now()
+      let formatDate = moment(date).format("DD/MM/YYYY ");
+      expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
+        credit: 15.00, debit: null}])
+    })
  })
 
   //add withdraw method

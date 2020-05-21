@@ -20,7 +20,7 @@ export class Account {
 
   withdraw(amount) {
     this.balance -= amount;
-    const debit = new TransactionDebit(amount);
+    const debit = new TransactionDebit(amount, this.balance);
     this.transactionHistory.push(debit.getTransaction());
   }
 

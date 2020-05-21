@@ -24,7 +24,7 @@ describe('TransactionDebit', () => {
   })
 
   describe('#balance', () => {
-    //this create balance as place holder for account balance
+    //this creates balance as place holder for account balance
     it('stores a value of 0 when a debit is created', () => {
       let transaction = new TransactionDebit(5.26);
       expect(transaction.balance).to.equal(0);

@@ -65,7 +65,7 @@ describe('Account', () => {
       let date = Date.now()
       let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
-        credit: null, debit: 15.00}])
+        credit: null, debit: 15.00, balance: -15.00}])
     })
   })
 

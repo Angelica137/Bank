@@ -14,7 +14,7 @@ describe('TransactionDebit', () => {
   describe('#date', () => {
     it('stores the date when the withdrawal was made', () => {
       let debit = new TransactionDebit(10.20, moment().format('L'));
-      expect(debit.date).to.equal(moment().format('L'));
+      expect(debit.date).to.deep.equal(Date.now());
     })
   })
 })

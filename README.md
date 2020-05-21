@@ -2,7 +2,7 @@
 
 During week 10 at Makers we are practicing the concepts we have covered so far. 
 
-The goal of this project is to practice our OO and TDD skills.
+The goal of this project is to practice our OOP and TDD skills.
 
 ## Specification
 
@@ -48,3 +48,21 @@ date || credit || debit || balance
 * As a user, when I want to know what transactions have I performed into my account
 * I want to be able see each transaction with its amount, date and how it affected my overall balance
 * so that I can know if the balance and transactions match what I was expecting
+
+## Class diagram
+
+```mermaid
+classDiagram
+Class01 <|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label

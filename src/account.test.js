@@ -29,13 +29,11 @@ describe('Account', () => {
       proxy();
       assert(creditMock.called);
     })
-     // updates balance
-     it('updates account balance with the deposit ßamount', () => {
+     it('updates account balance with the deposit amount', () => {
       let account = new Account();
       account.deposit(15);
       expect(account.balance).to.equal(15.00);
      })
-    // pushes transaction to transaction history
     it('adds transaction to transaction history', () => {
       let account = new Account();
       account.deposit(15);
@@ -55,5 +53,28 @@ describe('Account', () => {
   //updates balance
   //pushes transaction to transaction history
 
-
+  describe('#withdraw', () => {
+    // it('calls TransactionWithdraw', () => {
+    //   let account = new Account();
+    //   account.withdraw(15);
+    //   const debitMock = sinon.fake();
+    //   const proxy = debitMock;
+    //   proxy();
+    //   assert(creditMock.called);
+    // })
+     it('updates account balance with the withdrawn amount', () => {
+      let account = new Account();
+      account.balance = 15
+      account.withdraw(15);
+      expect(account.balance).to.equal(0);
+     })
+    it('adds transaction to transaction history', () => {
+      let account = new Account();
+      account.withdraw(15);
+      let date = Date.now()
+      let formatDate = moment(date).format("DD/MM/YYYY ");
+      expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
+        credit: null, debit: 15.00}])
+    })
+     })
 })

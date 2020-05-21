@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { TransactionCredit } from './credit';
-import moment from 'moment';
 
 describe('TransactionCredit', () => {
 

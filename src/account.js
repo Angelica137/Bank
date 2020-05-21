@@ -1,5 +1,5 @@
-import moment from 'moment';
 import { TransactionCredit } from './credit';
+import { TransactionDebit } from './debit';
 
 //An account holds a balance and a transacion history
 //an account can print statements
@@ -14,10 +14,13 @@ export class Account {
   deposit(amount) {
     this.balance += amount;
     const credit = new TransactionCredit(amount);
-    //push this transaction to transaction history
     this.transactionHistory.push(credit.getTransaction());
-    //with updated balance
+  }
 
+  withdraw(amount) {
+    this.balance -= amount;
+    const debit = new TransactionDebit(amount);
+    this.transactionHistory.push(debit.getTransaction());
   }
 
 }

@@ -19,18 +19,23 @@ describe('Account', () => {
     })
   })
 
-  // describe('#deposit', () => {
-  //   it('calls TransactionCredit', () => {
-  //     let account = new Account();
-  //     account.deposit(15);
-  //     const creditMock = sinon.fake();
-  //     const proxy = creditMock;
-  //     proxy();
-  //     assert(creditMock.called);
-  //   })
-      //updates balance
-     //pushes transaction to transaction history
- // })
+  describe('#deposit', () => {
+    it('calls TransactionCredit', () => {
+      let account = new Account();
+      account.deposit(15);
+      const creditMock = sinon.fake();
+      const proxy = creditMock;
+      proxy();
+      assert(creditMock.called);
+    })
+     // updates balance
+     it('updates account balance with the deposit amount', () => {
+      let account = new Account();
+      account.deposit(15);
+      expect(account.balance).to.equal(15.00);
+     })
+    // pushes transaction to transaction history
+ })
 
   //add withdraw method
   //it instantiates a transaction with

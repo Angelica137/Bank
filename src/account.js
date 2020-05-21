@@ -14,6 +14,7 @@ export class Account {
   deposit(amount) {
     //add dependency from Credit calss
     const credit = new this.transactionCreditClass(amount);
+    this.balance += amount;
     //update balance
     //push this transaction to transaction history
     //with updated balance

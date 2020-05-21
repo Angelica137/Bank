@@ -54,14 +54,14 @@ describe('Account', () => {
   //pushes transaction to transaction history
 
   describe('#withdraw', () => {
-    // it('calls TransactionWithdraw', () => {
-    //   let account = new Account();
-    //   account.withdraw(15);
-    //   const debitMock = sinon.fake();
-    //   const proxy = debitMock;
-    //   proxy();
-    //   assert(creditMock.called);
-    // })
+    it('calls TransactionDebit', () => {
+      let account = new Account();
+      account.withdraw(15);
+      const debitMock = sinon.fake();
+      const proxy = debitMock;
+      proxy();
+      assert(debitMock.called);
+    })
      it('updates account balance with the withdrawn amount', () => {
       let account = new Account();
       account.balance = 15

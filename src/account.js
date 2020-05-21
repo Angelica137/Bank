@@ -27,7 +27,13 @@ export class Account {
   //add method for statement
   //iterate through each object and turn to formatted string
   statement() {
-    return this.transactionHistory;
+    for (var j = 0; j < this.transactionHistory.length; j++) {
+      return [
+        this.date,
+        this.credit, 
+        this.debit,
+        this.balance
+      ].join("|| ");
+    }
   }
-
 }

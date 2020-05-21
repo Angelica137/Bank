@@ -70,26 +70,11 @@ describe('Account', () => {
   })
 
   // add statement method
-
-  // describe('#statement', () => {
-  //   it('retunrs transaction history on a table format', () => {
-  //     let account = new Account();
-  //     account.deposit(30);
-  //     expect(account.transactionHistory).to.equal("14/12/2020 || 30.00 || || 30.00");
-  //   })
-  //    it('updates account balance with the withdrawn amount', () => {
-  //     let account = new Account();
-  //     account.balance = 15
-  //     account.withdraw(15);
-  //     expect(account.balance).to.equal(0);
-  //    })
-  //   it('adds transaction to transaction history', () => {
-  //     let account = new Account();
-  //     account.withdraw(15);
-  //     let date = Date.now()
-  //     let formatDate = moment(date).format("DD/MM/YYYY ");
-  //     expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
-  //       credit: null, debit: 15.00}])
-  //   })
+  describe('#statement', () => {
+    it('retunrs transaction history on a table format', () => {
+      let account = new Account();
+      account.deposit(30);
+      expect(account.statement()).to.equal("date || 30.00 || || 30.00");
+    })
   })
-  
+})  

@@ -19,18 +19,18 @@ describe('Account', () => {
     })
   })
 
-  describe('#deposit', () => {
-    it('calls TransactionCredit', () => {
-      let account = new Account();
-      account.deposit(15);
-      const creditMock = sinon.fake();
-      const proxy = creditMock;
-      proxy();
-      assert(creditMock.called);
-    })
+  // describe('#deposit', () => {
+  //   it('calls TransactionCredit', () => {
+  //     let account = new Account();
+  //     account.deposit(15);
+  //     const creditMock = sinon.fake();
+  //     const proxy = creditMock;
+  //     proxy();
+  //     assert(creditMock.called);
+  //   })
       //updates balance
      //pushes transaction to transaction history
-  })
+ // })
 
   //add withdraw method
   //it instantiates a transaction with

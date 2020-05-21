@@ -1,11 +1,11 @@
 import moment from 'moment';
 
 export class TransactionCredit {
-  constructor(amount) {
+  constructor(amount, balance = null) {
     this.date = Date.now();
     this.credit = amount;
     this.debit = null; 
-    //this.balance = balance;
+    this.balance = balance;
   }
 
   //add method to format date as moment is unknowns

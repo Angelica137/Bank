@@ -14,18 +14,16 @@ export class TransactionCredit {
       debit: this.debit
       }
   }
-//add method to format date as moment is unknown
-//use moment().format('L');
   _formatDate() {
     return moment(this.date).format("DD/MM/YYYY ");
   }
 
 
-//add method increaseBalance - add this in account
+//add method increaseBalance - add this in account?
 //a deposit tells account to update balance
 //or tells balance to update?
 //add method to display trasanciton as per table requirement
 //this class is reponsible for formatting it self
-//account pulls it ready to use
+//account pulls it ready to use?
 
 }

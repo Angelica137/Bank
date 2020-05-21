@@ -4,7 +4,7 @@ import moment from 'moment';
 
 describe('TransactionCredit', () => {
 
-  describe('#amount', () => {
+  describe('#credit', () => {
     it('stores the amount the user enters', () => {
       let transaction = new TransactionCredit(0);
       expect(transaction.credit).to.equal(0.00);

@@ -4,17 +4,23 @@ import moment from 'moment';
 
 describe('TransactionDebit', () => {
 
-  describe('#amount', () => {
+  describe('#debit', () => {
     it('stores the amount the user enters', () => {
-      let debit = new TransactionDebit(10);
-      expect(debit.amount).to.equal(10.00);
+      let transaction = new TransactionDebit(10);
+      expect(transaction.debit).to.equal(10.00);
+    })
+  })
+  describe('#date', () => {
+    it('stores the date when the withdrawal was made', () => {
+      let transaction = new TransactionDebit(10.20);
+      expect(transaction.date).to.deep.equal(Date.now());
     })
   })
 
-  describe('#date', () => {
-    it('stores the date when the withdrawal was made', () => {
-      let debit = new TransactionDebit(10.20, moment().format('L'));
-      expect(debit.date).to.deep.equal(Date.now());
+  describe('#credit', () => {
+    it('stores a value of null when a debit is created', () => {
+      let transaction = new TransactionDebit(5.26);
+      expect(transaction.credit).to.equal(null);
     })
   })
 })

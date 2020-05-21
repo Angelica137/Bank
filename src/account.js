@@ -1,6 +1,5 @@
 import { TransactionCredit } from './credit';
 import { TransactionDebit } from './debit';
-import moment from 'moment';
 
 //An account holds a balance and a transacion history
 //an account can print statements

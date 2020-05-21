@@ -14,7 +14,7 @@ describe('TransactionCredit', () => {
   describe('#date', () => {
     it('stores the date when the deposit was made', () => {
       let transaction = new TransactionCredit(5.16);
-      expect(transaction.date).to.equal(moment().format('L'));
+      expect(transaction.date).to.deep.equal(Date.now());
     })
   })
 

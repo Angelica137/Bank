@@ -8,7 +8,7 @@ export class TransactionCredit {
     this.balance = balance;
   }
 
-  getTransaction() {
+  getTransactionCredit() {
     return {
       date: this._formatDate(),
       credit: this.credit,
@@ -16,12 +16,13 @@ export class TransactionCredit {
       balance: this.balance
       }
   }
+
   _formatDate() {
     return moment(this.date).format("DD/MM/YYYY ");
   }
 
 //add method to display trasanciton as per table requirement
 //this class is reponsible for formatting it self
-//account pulls it ready to use?
+//create method to send transaction to transaction history
 
 }

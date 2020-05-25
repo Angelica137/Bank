@@ -33,7 +33,7 @@ date || credit || debit || balance
 
 ### Use case: A user deposits money into their account
 
-# User story 1
+### User story 1
 * As a user, when I want to put my money away
 * I want to make a deposit into my account
 * so that I can keep my money safe at the bank

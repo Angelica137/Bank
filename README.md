@@ -31,23 +31,40 @@ date || credit || debit || balance
 
 ## User stories
 
-### User story 1
+### Use case: A user deposits money into their account
 
-* As a user, when I deposit money into my bank account, 
-* I want the date,  amount, and my updated balance to be recorded
-* So I can have a record of my deposits and my new balance
+# User story 1
+* As a user, when I want to put my money away
+* I want to make a deposit into my account
+* so that I can keep my money safe at the bank
 
 ### User story 2
 
-* As a user, when I withdraw money from my bank account, 
-* I wan to the date, amount, and my updated balance to be recorded
-* So that I can have a record of my withdrawals and the my new balnce
+* As a user, when I deposit money into my account
+* I want the date, amount and my updated balance to be recorded
+* so I can know how much money I got and why
+
+
+### Use case: A user withdraws money into their account
 
 ### User story 3
 
-* As a user, when I want to know what transactions have I performed into my account
-* I want to be able see each transaction with its amount, date and how it affected my overall balance
-* so that I can know if the balance and transactions match what I was expecting
+* As a user, when I want to use my money 
+* I want to make a withdrawal from my account
+* so that I can spend my cash
+
+### User story 4
+* As a user, when I withdraw money from my account
+* I want the date, amount and my updated balance to be recorded
+* so I can know how much money I got an why
+
+
+### Use case: print statement
+
+* As a user, when I want to know a history of my transactions
+* I want to be able to get a statement with all my transactions
+* so I can know what is going on with my  money
+
 
 ## Class diagram
 

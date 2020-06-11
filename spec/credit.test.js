@@ -13,7 +13,7 @@ describe('TransactionCredit', () => {
   describe('#date', () => {
     xit('stores the date when the deposit was made', () => {
       let transaction = new TransactionCredit(5.16);
-      expect(transaction.date).to.deep.equal(Date.now());
+      expect(transaction.date).to.equal(Date.now());
     })
   })
 
@@ -34,7 +34,6 @@ describe('TransactionCredit', () => {
   describe('#getTransactionCredit', () => {
     it('returns the transaction data', () => {
       let transaction = new TransactionCredit(2.34, 300);
-      //let date = Date.now()
       let formatDate = moment(transaction.date).format("DD/MM/YYYY ");
       expect(transaction.getTransactionCredit()).to.deep.equal({date: formatDate, 
         credit: 2.34, debit: null, balance: 300.00})

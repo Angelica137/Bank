@@ -39,10 +39,10 @@ date || credit || debit || balance
 * so that I can keep my money safe at the bank
 
 ### User story 2
-
 * As a user, when I deposit money into my account
 * I want the date, amount and my updated balance to be recorded
 * so I can know how much money I got and why
+
 
 
 ### Use case: A user withdraws money into their account
@@ -59,11 +59,13 @@ date || credit || debit || balance
 * so I can know how much money I got an why
 
 
+
 ### Use case: print statement
 
 * As a user, when I want to know a history of my transactions
 * I want to be able to get a statement with all my transactions
 * so I can know what is going on with my  money
+
 
 
 ## Class diagram

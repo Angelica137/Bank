@@ -21,7 +21,8 @@ export class TransactionCredit {
     return moment(this.date).format("DD/MM/YYYY ");
   }
 
-//add method to display trasanciton as per table requirement
+//add method to display trasanciton as per table requirements
+//this is a string
 //this class is reponsible for formatting it self
 //create method to send transaction to transaction history
 

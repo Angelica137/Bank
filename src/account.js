@@ -1,11 +1,13 @@
-import { TransactionCredit } from './credit';
-import { TransactionDebit } from './debit';
+import { TransactionCredit } from "./credit";
 
 //An account holds a balance and a transacion history
 //an account can print statements
 
 export class Account {
-  constructor(transactionCreditClass = TransactionCredit, transactionDebitClass = TransactionDebit) {
+  constructor(
+    transactionCreditClass = TransactionCredit,
+    transactionDebitClass = TransactionDebit
+  ) {
     this.balance = 0;
     this.transactionHistory = [];
     this.transactionCreditClass = TransactionCredit;
@@ -28,12 +30,7 @@ export class Account {
   //iterate through each object and turn to formatted string
   statement() {
     for (var j = 0; j < this.transactionHistory.length; j++) {
-      return [
-        this.date,
-        this.credit, 
-        this.debit,
-        this.balance
-      ].join("|| ");
+      return [this.date, this.credit, this.debit, this.balance].join("|| ");
     }
   }
 }

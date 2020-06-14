@@ -1,80 +1,81 @@
-import { expect } from 'chai';
-import { Account } from '../src/account';
-import moment from 'moment';
-var sinon = require('sinon');
-var assert = require('assert');
+import { expect } from "chai";
+import { Account } from "../src/account";
+import moment from "moment";
+import sinon from "sinon";
+var assert = require("assert");
 
-describe('Account', () => {
-
-  describe('#balance', () => {
-    it('starts with value of 0', () => {
+describe("Account", () => {
+  describe("#balance", () => {
+    it("starts with value of 0", () => {
       let account = new Account();
       expect(account.balance).to.equal(0);
-    })
-  })
+    });
+  });
 
-  describe('#transactionHistory', () => {
-    it('starts as an empty list', () => {
+  describe("#transactionHistory", () => {
+    it("starts as an empty list", () => {
       let account = new Account();
       expect(account.transactionHistory).to.deep.equal([]);
-    })
-  })
+    });
+  });
 
-  describe('#deposit', () => {
-    xit('calls TransactionCredit', () => {
+  describe("#deposit", () => {
+    it("calls TransactionCredit", () => {
       let account = new Account();
       account.deposit(15);
       const creditMock = sinon.fake();
       const proxy = creditMock;
       proxy();
       assert(creditMock.called);
-    })
-    xit('updates account balance with the deposit amount', () => {
+    });
+    it("updates account balance with the deposit amount", () => {
       let account = new Account();
       account.deposit(15);
-      expect(account.balance).to.equal(15.00);
-    })
-    xit('adds transaction to transaction history with updated balance', () => {
+      expect(account.balance).to.equal(15.0);
+    });
+    it("adds transaction to transaction history with updated balance", () => {
       let account = new Account();
       account.deposit(15);
-      let date = Date.now()
+      let date = Date.now();
       let formatDate = moment(date).format("DD/MM/YYYY ");
-      expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
-        credit: 15.00, debit: null, balance: 15.00}])
-    })
-  })
+      expect(account.transactionHistory).to.deep.equal([
+        { date: formatDate, credit: 15.0, debit: null, balance: 15.0 },
+      ]);
+    });
+  });
 
-  describe('#withdraw', () => {
-    it('calls TransactionDebit', () => {
+  describe("#withdraw", () => {
+    it("calls TransactionDebit", () => {
       let account = new Account();
       account.withdraw(15);
       const debitMock = sinon.fake();
       const proxy = debitMock;
       proxy();
       assert(debitMock.called);
-    })
-    it('updates account balance with the withdrawn amount', () => {
+    });
+    it("updates account balance with the withdrawn amount", () => {
       let account = new Account();
-      account.balance = 15
+      account.balance = 15;
       account.withdraw(15);
       expect(account.balance).to.equal(0);
-    })
-    it('adds transaction to transaction history', () => {
+    });
+    it("adds transaction to transaction history", () => {
       let account = new Account();
       account.withdraw(15);
-      let date = Date.now()
+      let date = Date.now();
       let formatDate = moment(date).format("DD/MM/YYYY ");
-      expect(account.transactionHistory).to.deep.equal([{date: formatDate, 
-        credit: null, debit: 15.00, balance: -15.00}])
-    })
-  })
+      expect(account.transactionHistory).to.deep.equal([
+        { date: formatDate, credit: null, debit: 15.0, balance: -15.0 },
+      ]);
+    });
+  });
 
   // add statement method
-//   describe('#statement', () => {
-//     it('retunrs transaction history on a table format', () => {
-//       let account = new Account();
-//       account.deposit(30);
-//       expect(account.statement()).to.equal("date || 30.00 || || 30.00");
-//     })
-//   })
- })  
+  //   describe('#statement', () => {
+  //     it('retunrs transaction history on a table format', () => {
+  //       let account = new Account();
+  //       account.deposit(30);
+  //       expect(account.statement()).to.equal("date || 30.00 || || 30.00");
+  //     })
+  //   })
+});

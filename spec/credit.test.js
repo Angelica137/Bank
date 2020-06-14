@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { Transaction } from "../src/transaction";
-import { moment } from "moment";
+import moment from "moment";
 
 describe("Transaction", () => {
   describe("#credit", () => {
@@ -36,13 +36,14 @@ describe("Transaction", () => {
 
   describe("#getTransaction", () => {
     it("returns the transaction data", () => {
-      let transaction = new Transaction(2.34, 300);
+      let transaction = new Transaction();
+      transaction.credit = 200;
       let formatDate = moment(transaction.date).format("DD/MM/YYYY ");
       expect(transaction.getTransaction()).to.deep.equal({
         date: formatDate,
-        credit: 2.34,
+        credit: 200,
         debit: null,
-        balance: 300.0,
+        balance: null,
       });
     });
   });

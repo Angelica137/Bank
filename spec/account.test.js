@@ -1,10 +1,10 @@
 import { expect } from "chai";
 import { Account } from "../src/account";
-import moment from "moment";
-import sinon from "sinon";
+import { moment } from "moment";
+import { sinon } from "sinon";
 var assert = require("assert");
 
-xdescribe("Account", () => {
+describe("Account", () => {
   describe("#balance", () => {
     it("starts with value of 0", () => {
       let account = new Account();

@@ -1,4 +1,4 @@
-import moment from "moment";
+import { moment } from "moment";
 
 export class Transaction {
   constructor(credit = null, debit = null, balance = null) {

@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export class TransactionCredit {
+export class Transaction {
   constructor(amount, balance = 0) {
     this.date = Date.now();
     this.credit = amount;
@@ -8,7 +8,7 @@ export class TransactionCredit {
     this.balance = balance;
   }
 
-  getTransactionCredit() {
+  getTransaction() {
     return {
       date: this._formatDate(),
       credit: this.credit,

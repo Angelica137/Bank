@@ -1,4 +1,4 @@
-import { TransactionCredit } from "./credit";
+import { TransactionCredit } from "./transaction";
 
 //An account holds a balance and a transacion history
 //an account can print statements

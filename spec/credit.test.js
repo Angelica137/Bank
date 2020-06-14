@@ -28,9 +28,9 @@ describe("Transaction", () => {
   });
 
   describe("#balance", () => {
-    it("stores a value of 0 when a credit is created", () => {
-      let transaction = new Transaction(5.26);
-      expect(transaction.balance).to.equal(0);
+    it("stores a value of null when a credit is created", () => {
+      let transaction = new Transaction();
+      expect(transaction.balance).to.equal(null);
     });
   });
 

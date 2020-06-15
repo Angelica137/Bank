@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { Transaction } from "../src/transaction";
 import moment from "moment";
+import { set, reset } from "mockdate";
 
 describe("Transaction", () => {
   describe("#credit", () => {
@@ -22,8 +23,10 @@ describe("Transaction", () => {
   //use mock to test date
   describe("#date", () => {
     it("stores the date when the deposit was made", () => {
-      let transaction = new Transaction(5.16);
+      set("3/30/2020");
+      let transaction = new Transaction();
       expect(transaction.date).to.equal(Date.now());
+      reset();
     });
   });
 

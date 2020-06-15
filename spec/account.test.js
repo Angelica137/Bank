@@ -4,7 +4,7 @@ import { moment } from "moment";
 import { sinon } from "sinon";
 var assert = require("assert");
 
-describe("Account", () => {
+xdescribe("Account", () => {
   describe("#balance", () => {
     it("starts with value of 0", () => {
       let account = new Account();

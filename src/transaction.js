@@ -17,12 +17,19 @@ export class Transaction {
     };
   }
 
+  formatTransaction() {
+    if (typeof this.credit == "number") {
+      return `${this._formatDate()}|| ${this.credit.toFixed(
+        2
+      )} || || ${this.balance.toFixed(2)}`;
+    } else if (typeof this.debit === "number") {
+      return `${this._formatDate()}|| || ${this.debit.toFixed(
+        2
+      )} || ${this.balance.toFixed(2)}`;
+    }
+  }
+
   _formatDate() {
     return moment(this.date).format("DD/MM/YYYY ");
   }
-
-  //add method to display transanciton as per table requirements
-  //this is a string
-  //this class is reponsible for formatting it self
-  //create method to send transaction to transaction history
 }

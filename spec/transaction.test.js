@@ -52,14 +52,21 @@ describe("Transaction", () => {
   });
 
   describe("#formatTransaction", () => {
-    it("formats the transaction into a string", () => {
+    it("formats the credit transaction into a string", () => {
       set("3/30/2020");
       let transaction = new Transaction();
       transaction.credit = 100;
-      transaction.balance = 4000.0;
-      expect(transactrion.formatTransaction()).to.equal(
+      transaction.balance = 4000;
+      expect(transaction.formatTransaction()).to.equal(
         "30/03/2020 || 100.00 || || 4000.00"
       );
+      let transaction2 = new Transaction();
+      transaction2.debit = 30;
+      transaction2.balance = 3970;
+      expect(transaction2.formatTransaction()).to.equal(
+        "30/03/2020 || || 30.00 || 3970.00"
+      );
+
       reset();
     });
   });

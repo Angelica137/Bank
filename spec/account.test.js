@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { Account } from "../src/account";
-import { moment } from "moment";
+import { set, reset } from "mockdate";
 const sinon = require("sinon");
 var assert = require("assert");
 
@@ -36,11 +36,10 @@ describe("Account", () => {
     it("adds transaction to transaction history with updated balance", () => {
       let account = new Account();
       account.deposit(15);
-      let date = Date.now();
-      let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([
-        { date: formatDate, credit: 15.0, debit: null, balance: 15.0 },
+        "30/03/2020 || 15.00 || || 15.00",
       ]);
+      reset();
     });
   });
 

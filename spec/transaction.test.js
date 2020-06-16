@@ -20,9 +20,11 @@ describe("Transaction", () => {
     });
   });
 
+  //use mock to test date
   describe("#date", () => {
     it("stores the date when the deposit was made", () => {
-      set("3/30/2020");
+      const date = "Mon Mar 30 2020 00:00:00 GMT+0100 (British Summer Time)";
+      set(date);
       let transaction = new Transaction();
       expect(transaction.date).to.equal(Date.now());
       reset();
@@ -38,15 +40,18 @@ describe("Transaction", () => {
 
   describe("#getTransaction", () => {
     it("returns the transaction data", () => {
+
       set("3/30/2020");
       let transaction = new Transaction();
       transaction.credit = 200;
       expect(transaction.getTransaction()).to.deep.equal({
         date: "30/03/2020 ",
+
         credit: 200,
         debit: null,
         balance: null,
       });
+
       reset();
     });
   });
@@ -67,6 +72,7 @@ describe("Transaction", () => {
         "30/03/2020 || || 30.00 || 3970.00"
       );
       reset();
+
     });
   });
 });

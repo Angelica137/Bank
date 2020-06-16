@@ -44,8 +44,8 @@ describe("Account", () => {
     });
   });
 
-  xdescribe("#withdraw", () => {
-    it("calls TransactionDebit", () => {
+  describe("#withdraw", () => {
+    it("creates a Transaction with a debit amount", () => {
       let account = new Account();
       account.withdraw(15);
       const debitMock = sinon.fake();

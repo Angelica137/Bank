@@ -1,6 +1,5 @@
 import { expect } from "chai";
 import { Transaction } from "../src/transaction";
-import moment from "moment";
 import { set, reset } from "mockdate";
 
 describe("Transaction", () => {
@@ -20,7 +19,6 @@ describe("Transaction", () => {
     });
   });
 
-  //use mock to test date
   describe("#date", () => {
     it("stores the date when the deposit was made", () => {
       const date = "Mon Mar 30 2020 00:00:00 GMT+0100 (British Summer Time)";
@@ -40,7 +38,6 @@ describe("Transaction", () => {
 
   describe("#getTransaction", () => {
     it("returns the transaction data", () => {
-
       set("3/30/2020");
       let transaction = new Transaction();
       transaction.credit = 200;
@@ -72,7 +69,6 @@ describe("Transaction", () => {
         "30/03/2020 || || 30.00 || 3970.00"
       );
       reset();
-
     });
   });
 });

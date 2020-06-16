@@ -40,15 +40,39 @@ describe("Transaction", () => {
 
   describe("#getTransaction", () => {
     it("returns the transaction data", () => {
+
+      set("3/30/2020");
       let transaction = new Transaction();
       transaction.credit = 200;
-      let formatDate = moment(transaction.date).format("DD/MM/YYYY ");
       expect(transaction.getTransaction()).to.deep.equal({
-        date: formatDate,
+        date: "30/03/2020 ",
+
         credit: 200,
         debit: null,
         balance: null,
       });
+
+      reset();
+    });
+  });
+
+  describe("#formatTransaction", () => {
+    it("formats the credit transaction into a string", () => {
+      set("3/30/2020");
+      let transaction = new Transaction();
+      transaction.credit = 100;
+      transaction.balance = 4000;
+      expect(transaction.formatTransaction()).to.equal(
+        "30/03/2020 || 100.00 || || 4000.00"
+      );
+      let transaction2 = new Transaction();
+      transaction2.debit = 30;
+      transaction2.balance = 3970;
+      expect(transaction2.formatTransaction()).to.equal(
+        "30/03/2020 || || 30.00 || 3970.00"
+      );
+      reset();
+
     });
   });
 });

@@ -8,7 +8,7 @@ export class Account {
 
   deposit(amount) {
     this.balance += amount;
-    const credit = new TransactionCredit(amount, this.balance);
+    const credit = new Transaction(amount, this.balance);
     this.transactionHistory.push(credit.getTransaction());
   }
 

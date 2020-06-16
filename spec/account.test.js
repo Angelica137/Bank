@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { Account } from "../src/account";
 import { moment } from "moment";
-import { sinon } from "sinon";
+const sinon = require("sinon");
 var assert = require("assert");
 
 describe("Account", () => {
@@ -20,7 +20,7 @@ describe("Account", () => {
   });
 
   describe("#deposit", () => {
-    it("calls TransactionCredit", () => {
+    it("creates a Transaction with a credit amount", () => {
       let account = new Account();
       account.deposit(15);
       const creditMock = sinon.fake();

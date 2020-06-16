@@ -70,12 +70,22 @@ describe("Account", () => {
     });
   });
 
-  // add statement method
-  //   describe('#statement', () => {
-  //     it('retunrs transaction history on a table format', () => {
-  //       let account = new Account();
-  //       account.deposit(30);
-  //       expect(account.statement()).to.equal("date || 30.00 || || 30.00");
-  //     })
-  //   })
+  describe("#statement", () => {
+    it("retunrs transaction history on a table format", () => {
+      set("3/30/2020");
+      let account = new Account();
+      account.deposit(30);
+      account.deposit(30);
+      account.deposit(30);
+      account.withdraw(30);
+      expect(account.statement()).to.equal(
+        "date || credit || debit || balance\n" +
+          "30/03/2020 || 30.00 || || 30.00\n" +
+          "30/03/2020 || 30.00 || || 60.00\n" +
+          "30/03/2020 || 30.00 || || 90.00\n" +
+          "30/03/2020 || || 30.00 || 60.00\n"
+      );
+    });
+    reset();
+  });
 });

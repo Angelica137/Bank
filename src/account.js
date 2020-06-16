@@ -18,9 +18,9 @@ export class Account {
     this.transactionHistory.push(debit.formatTransaction());
   }
 
-  statement() {
-    for (var j = 0; j < this.transactionHistory.length; j++) {
-      return [this.date, this.credit, this.debit, this.balance].join("|| ");
-    }
-  }
+  //statement() {
+  //for (var j = 0; j < this.transactionHistory.length; j++) {
+  //return [this.date, this.credit, this.debit, this.balance].join("|| ");
+  // }
+  //}
 }

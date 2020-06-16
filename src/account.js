@@ -8,8 +8,8 @@ export class Account {
 
   deposit(amount) {
     this.balance += amount;
-    const credit = new Transaction(amount, this.balance);
-    this.transactionHistory.push(credit.getTransaction());
+    const credit = new Transaction(amount, 0, this.balance);
+    this.transactionHistory.push(credit.formatTransaction());
   }
 
   withdraw(amount) {
@@ -18,8 +18,6 @@ export class Account {
     this.transactionHistory.push(debit.getTransaction());
   }
 
-  //add method for statement
-  //iterate through each object and turn to formatted string
   statement() {
     for (var j = 0; j < this.transactionHistory.length; j++) {
       return [this.date, this.credit, this.debit, this.balance].join("|| ");

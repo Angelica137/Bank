@@ -54,7 +54,7 @@ describe("Transaction", () => {
   });
 
   describe("#formatTransaction", () => {
-    it("formats the credit transaction into a string", () => {
+    it("formats the credit and debit transaction into a string", () => {
       set("3/30/2020");
       let transaction = new Transaction();
       transaction.credit = 100;

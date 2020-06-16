@@ -34,6 +34,7 @@ describe("Account", () => {
       expect(account.balance).to.equal(15.0);
     });
     it("adds transaction to transaction history with updated balance", () => {
+      set("3/30/2020");
       let account = new Account();
       account.deposit(15);
       expect(account.transactionHistory).to.deep.equal([

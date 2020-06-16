@@ -1,17 +1,9 @@
-import { TransactionCredit } from "./transaction";
-
-//An account holds a balance and a transacion history
-//an account can print statements
+import { Transaction } from "./transaction";
 
 export class Account {
-  constructor(
-    transactionCreditClass = TransactionCredit,
-    transactionDebitClass = TransactionDebit
-  ) {
-    this.balance = 0;
+  constructor(balance = 0) {
+    this.balance = balance;
     this.transactionHistory = [];
-    this.transactionCreditClass = TransactionCredit;
-    this.transactionDebitClass = TransactionDebit;
   }
 
   deposit(amount) {

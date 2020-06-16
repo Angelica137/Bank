@@ -59,14 +59,14 @@ describe("Account", () => {
       account.withdraw(15);
       expect(account.balance).to.equal(0);
     });
-    it("adds transaction to transaction history", () => {
+    it("adds withdrawal to transaction history", () => {
+      set("3/30/2020");
       let account = new Account();
       account.withdraw(15);
-      let date = Date.now();
-      let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([
-        { date: formatDate, credit: null, debit: 15.0, balance: -15.0 },
+        "30/03/2020 || || 15.00 || -15.00",
       ]);
+      reset();
     });
   });
 

@@ -1,10 +1,10 @@
 import { expect } from "chai";
 import { Account } from "../src/account";
-import { moment } from "moment";
-import { sinon } from "sinon";
+import { set, reset } from "mockdate";
+const sinon = require("sinon");
 var assert = require("assert");
 
-xdescribe("Account", () => {
+describe("Account", () => {
   describe("#balance", () => {
     it("starts with value of 0", () => {
       let account = new Account();
@@ -20,7 +20,7 @@ xdescribe("Account", () => {
   });
 
   describe("#deposit", () => {
-    it("calls TransactionCredit", () => {
+    it("creates a Transaction with a credit amount", () => {
       let account = new Account();
       account.deposit(15);
       const creditMock = sinon.fake();
@@ -34,18 +34,18 @@ xdescribe("Account", () => {
       expect(account.balance).to.equal(15.0);
     });
     it("adds transaction to transaction history with updated balance", () => {
+      set("3/30/2020");
       let account = new Account();
       account.deposit(15);
-      let date = Date.now();
-      let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([
-        { date: formatDate, credit: 15.0, debit: null, balance: 15.0 },
+        "30/03/2020 || 15.00 || || 15.00",
       ]);
+      reset();
     });
   });
 
-  xdescribe("#withdraw", () => {
-    it("calls TransactionDebit", () => {
+  describe("#withdraw", () => {
+    it("creates a Transaction with a debit amount", () => {
       let account = new Account();
       account.withdraw(15);
       const debitMock = sinon.fake();
@@ -59,23 +59,33 @@ xdescribe("Account", () => {
       account.withdraw(15);
       expect(account.balance).to.equal(0);
     });
-    it("adds transaction to transaction history", () => {
+    it("adds withdrawal to transaction history", () => {
+      set("3/30/2020");
       let account = new Account();
       account.withdraw(15);
-      let date = Date.now();
-      let formatDate = moment(date).format("DD/MM/YYYY ");
       expect(account.transactionHistory).to.deep.equal([
-        { date: formatDate, credit: null, debit: 15.0, balance: -15.0 },
+        "30/03/2020 || || 15.00 || -15.00",
       ]);
+      reset();
     });
   });
 
-  // add statement method
-  //   describe('#statement', () => {
-  //     it('retunrs transaction history on a table format', () => {
-  //       let account = new Account();
-  //       account.deposit(30);
-  //       expect(account.statement()).to.equal("date || 30.00 || || 30.00");
-  //     })
-  //   })
+  describe("#statement", () => {
+    it("retunrs transaction history on a table format", () => {
+      set("3/30/2020");
+      let b = new Account();
+      b.deposit(30);
+      b.deposit(30);
+      b.deposit(30);
+      b.withdraw(30);
+      expect(b.statement()).to.equal(
+        "date || credit || debit || balance\n" +
+          "30/03/2020 || 30.00 || || 30.00\n" +
+          "30/03/2020 || 30.00 || || 60.00\n" +
+          "30/03/2020 || 30.00 || || 90.00\n" +
+          "30/03/2020 || || 30.00 || 60.00\n"
+      );
+    });
+    reset();
+  });
 });

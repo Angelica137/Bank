@@ -1,36 +1,27 @@
-import { TransactionCredit } from "./transaction";
-
-//An account holds a balance and a transacion history
-//an account can print statements
+import { Transaction } from "./transaction";
 
 export class Account {
-  constructor(
-    transactionCreditClass = TransactionCredit,
-    transactionDebitClass = TransactionDebit
-  ) {
-    this.balance = 0;
+  constructor(balance = 0) {
+    this.balance = balance;
     this.transactionHistory = [];
-    this.transactionCreditClass = TransactionCredit;
-    this.transactionDebitClass = TransactionDebit;
   }
 
   deposit(amount) {
     this.balance += amount;
-    const credit = new TransactionCredit(amount, this.balance);
-    this.transactionHistory.push(credit.getTransaction());
+    const credit = new Transaction(amount, 0, this.balance);
+    this.transactionHistory.push(credit.formatTransaction());
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    const debit = new TransactionDebit(amount, this.balance);
-    this.transactionHistory.push(debit.getTransaction());
+    const debit = new Transaction(null, amount, this.balance);
+    this.transactionHistory.push(debit.formatTransaction());
   }
 
-  //add method for statement
-  //iterate through each object and turn to formatted string
   statement() {
-    for (var j = 0; j < this.transactionHistory.length; j++) {
-      return [this.date, this.credit, this.debit, this.balance].join("|| ");
+    console.log("date || credit || debit || balance\n");
+    for (let transaction of this.transactionHistory) {
+      console.log(transaction);
     }
   }
 }
